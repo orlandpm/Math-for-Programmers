@@ -38,10 +38,11 @@ class Arrow3D():
         self.color = color
 
 class Segment3D():
-    def __init__(self, start_point, end_point, color=blue):
+    def __init__(self, start_point, end_point, color=blue, linestyle='solid'):
         self.start_point = start_point
         self.end_point = end_point
         self.color = color
+        self.linestyle = linestyle
 
 class Box3D():
     def __init__(self, *vector):
@@ -67,11 +68,12 @@ def extract_vectors_3D(objects):
         else:
             raise TypeError("Unrecognized object: {}".format(object))
 
-def draw3d(*objects, origin=True, axes=True, width=6, save_as=None):
+def draw3d(*objects, origin=True, axes=True, width=6, save_as=None, azim=None,elev=None):
 
     fig = plt.gcf()
     ax = fig.add_subplot(111, projection='3d')
-
+    ax.view_init(elev=elev,azim=azim)
+    
     all_vectors = list(extract_vectors_3D(objects))
     if origin:
         all_vectors.append((0,0,0))
@@ -126,7 +128,7 @@ def draw3d(*objects, origin=True, axes=True, width=6, save_as=None):
             ax.add_artist(a)
 
         elif type(object) == Segment3D:
-            draw_segment(object.start_point, object.end_point, color=object.color)
+            draw_segment(object.start_point, object.end_point, color=object.color, linestyle=object.linestyle)
 
         elif type(object) == Box3D:
             x,y,z = object.vector
@@ -144,6 +146,6 @@ def draw3d(*objects, origin=True, axes=True, width=6, save_as=None):
             raise TypeError("Unrecognized object: {}".format(object))
 
     if save_as:
-        plt.savefig("images/"+save_as)
+        plt.savefig(save_as)
 
     plt.show()

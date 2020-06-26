@@ -137,6 +137,6 @@ def draw2d(*objects, origin=True, axes=True, grid=(1,1), nice_aspect_ratio=True,
         fig.set_size_inches(width , width * coords_height / coords_width)
 
     if save_as:
-        plt.savefig("images/"+save_as)
+        plt.savefig(save_as)
 
     plt.show()
