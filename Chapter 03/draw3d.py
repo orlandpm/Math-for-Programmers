@@ -68,7 +68,7 @@ def extract_vectors_3D(objects):
         else:
             raise TypeError("Unrecognized object: {}".format(object))
 
-def draw3d(*objects, origin=True, axes=True, width=6, save_as=None, azim=None,elev=None):
+def draw3d(*objects, origin=True, axes=True, width=6, save_as=None, azim=None, elev=None, xlim=None, ylim=None, zlim=None, xticks=None, yticks=None, zticks=None,depthshade=False):
 
     fig = plt.gcf()
     ax = fig.add_subplot(111, projection='3d')
@@ -113,7 +113,7 @@ def draw3d(*objects, origin=True, axes=True, width=6, save_as=None, azim=None,el
     for object in objects:
         if type(object) == Points3D:
             xs, ys, zs = zip(*object.vectors)
-            ax.scatter(xs,ys,zs,color=object.color)
+            ax.scatter(xs,ys,zs,color=object.color,depthshade=depthshade)
 
         elif type(object) == Polygon3D:
             for i in range(0,len(object.vertices)):
@@ -145,6 +145,15 @@ def draw3d(*objects, origin=True, axes=True, width=6, save_as=None, azim=None,el
         else:
             raise TypeError("Unrecognized object: {}".format(object))
 
+    if xlim and ylim and zlim:
+        plt.xlim(*xlim)
+        plt.ylim(*ylim)
+        ax.set_zlim(*zlim)
+    if xticks and yticks and zticks:
+        plt.xticks(xticks)
+        plt.yticks(yticks)
+        ax.set_zticks(zticks)
+        
     if save_as:
         plt.savefig(save_as)
 
