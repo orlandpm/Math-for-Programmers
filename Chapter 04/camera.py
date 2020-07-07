@@ -4,7 +4,7 @@ from math import ceil
 import os
 
 class Camera():
-    def __init__(self,name,shots=[],dir="figs",comic_strip=None):
+    def __init__(self,name,shots=[],dir="figures",comic_strip=None):
         self.dir = os.path.join(os.getcwd(), dir)
         if not os.path.exists(self.dir):
             os.makedirs(self.dir)

@@ -20,7 +20,7 @@ def scale_by(scalar):
 import sys
 import camera
 if '--snapshot' in sys.argv:
-    camera.default_camera = camera.Camera('ex_scale_teapot_-1',[0])
+    camera.default_camera = camera.Camera('MINIPROJ_4.3c',[0])
 ####################################################################
 
 draw_model(polygon_map(scale_by(-1), load_triangles()))
