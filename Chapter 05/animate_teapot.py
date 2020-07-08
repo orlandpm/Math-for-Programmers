@@ -17,7 +17,7 @@ def get_rotation_matrix(t): #1
 import sys
 import camera
 if '--snapshot' in sys.argv:
-    camera.default_camera = camera.Camera('fig_4.4_draw_teapot',[0])
+    camera.default_camera = camera.Camera('fig_5.4_draw_teapot',[0,1000,2000,3000,4000])
 ####################################################################
 
 draw_model(load_triangles(), get_matrix=get_rotation_matrix)

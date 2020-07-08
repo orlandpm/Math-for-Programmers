@@ -19,7 +19,7 @@ def translate_3d(translation):
 import sys
 import camera
 if '--snapshot' in sys.argv:
-    camera.default_camera = camera.Camera('ex_matrix_translate_teapot',[0])
+    camera.default_camera = camera.Camera('fig_5.36_translated_teapot',[0])
 ####################################################################
 
 draw_model(polygon_map(translate_3d((2,2,-3)),load_triangles()))
