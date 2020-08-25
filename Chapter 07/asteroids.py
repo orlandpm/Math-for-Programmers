@@ -4,6 +4,7 @@ import vectors
 from math import pi, sqrt, cos, sin, atan2
 from random import randint, uniform
 from linear_solver import do_segments_intersect
+import sys
 
 # DEFINE OBJECTS OF THE GAME
 
@@ -96,6 +97,8 @@ def draw_poly(screen, polygon_model, color=GREEN):
 def draw_segment(screen, v1,v2,color=RED):
     pygame.draw.aaline(screen, color, to_pixels(*v1), to_pixels(*v2), 10)
 
+screenshot_mode = False
+
 # INITIALIZE GAME ENGINE
 
 def main():
@@ -110,6 +113,9 @@ def main():
 
     done = False
     clock = pygame.time.Clock()
+
+    # p key prints screenshot (you can ignore this variable)
+    p_pressed = False
 
     while not done:
 
@@ -135,9 +141,16 @@ def main():
 
         laser = ship.laser_segment()
 
+        # p key saves screenshot (you can ignore this)
+        if keys[pygame.K_p] and screenshot_mode:
+            p_pressed = True
+        elif p_pressed:
+            pygame.image.save(screen, 'figures/asteroid_screenshot_%d.png' % milliseconds)
+            p_pressed = False
+
         # DRAW THE SCENE
 
-        screen.fill(BLACK)
+        screen.fill(WHITE)
 
         if keys[pygame.K_SPACE]:
             draw_segment(screen, *laser)
@@ -156,4 +169,6 @@ def main():
     pygame.quit()
 
 if __name__ == "__main__":
+    if '--screenshot' in sys.argv:
+        screenshot_mode = True
     main()
