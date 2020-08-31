@@ -156,12 +156,15 @@ asteroid_count = 10
 default_asteroids = [Asteroid() for _ in range(0,asteroid_count)]
 
 black_hole = BlackHole(0.1)
-black_hole2 = BlackHole(0.1)
+# black_hole2 = BlackHole(0.1)
 
-black_hole.x, black_hole.y = -3, 4
-black_hole2.x, black_hole2.y = 2, -1
+black_hole.x, black_hole.y = 0,0
+# black_hole2.x, black_hole2.y = 2, -1
 
-black_holes = [black_hole, black_hole2]
+black_holes = [
+    black_hole, 
+    # black_hole2
+]
 
 def gravitational_field(sources, x, y):
     fields = [vectors.scale(- source.gravity, (x - source.x, y - source.y))
@@ -255,9 +258,9 @@ def main(asteroids=default_asteroids):
         for ast in asteroids:
             ast.move(milliseconds,(0,0),gravity_sources=black_holes)
 
-        for bh in black_holes:
-            others = [other for other in black_holes if other != bh]
-            bh.move(milliseconds, (0,0), others)
+        # for bh in black_holes:
+        #     others = [other for other in black_holes if other != bh]
+        #     bh.move(milliseconds, (0,0), others)
 
         ship_thrust_vector = (0,0)
 
