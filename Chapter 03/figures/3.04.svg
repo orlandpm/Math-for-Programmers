@@ -628,17 +628,17 @@ C -2.000462 -1.161816 -2.236068 -0.593012 -2.236068 0
 C -2.236068 0.593012 -2.000462 1.161816 -1.581139 1.581139 
 C -1.161816 2.000462 -0.593012 2.236068 0 2.236068 
 z
-" id="mcdfe83875a" style="stroke:#000000;stroke-opacity:0;"/>
+" id="mf3ca50fcbd" style="stroke:#000000;stroke-opacity:0;"/>
     </defs>
-    <g clip-path="url(#p9837741483)">
-     <use style="fill-opacity:0;stroke:#000000;stroke-opacity:0;" x="114.481536" xlink:href="#mcdfe83875a" y="195.924169"/>
-     <use style="fill-opacity:0;stroke:#000000;stroke-opacity:0;" x="339.236797" xlink:href="#mcdfe83875a" y="83.826561"/>
+    <g clip-path="url(#pcac008dc47)">
+     <use style="fill-opacity:0;stroke:#000000;stroke-opacity:0;" x="114.481536" xlink:href="#mf3ca50fcbd" y="195.924169"/>
+     <use style="fill-opacity:0;stroke:#000000;stroke-opacity:0;" x="339.236797" xlink:href="#mf3ca50fcbd" y="83.826561"/>
     </g>
    </g>
   </g>
  </g>
  <defs>
-  <clipPath id="p9837741483">
+  <clipPath id="pcac008dc47">
    <rect height="217.44" width="334.8" x="54" y="34.56"/>
   </clipPath>
  </defs>
